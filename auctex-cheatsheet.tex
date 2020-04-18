@@ -1,29 +1,36 @@
 \documentclass[landscape]{article}
-\usepackage[margin=0.5in]{geometry}
+\usepackage[total={9in, 6in}]{geometry}
 \usepackage{amsmath}
 \usepackage{xcolor}
-\usepackage{fancyvrb}
-\usepackage[stable]{footmisc}
 \usepackage{multicol}
 \usepackage{enumitem}
 \pagestyle{empty}
 
+\setlength{\columnsep}{1cm}
+
 \newcommand{\kbd}[1]{\colorbox{gray!10!}{\texttt{#1}}}
+\newcommand{\keydef}[2]{\item[\kbd{#1}] \parbox[t]{\linewidth}{#2}}
+
 \newcommand{\doctitle}{\texttt{AUC}\TeX \hspace{.25em} Cheatsheet}
-\newcommand{\element}[2][-]{\item[#1] \parbox[t]{\linewidth}{#2}}
 
 \begin{document}
 
 \hspace*{\fill}{\huge \bfseries \doctitle \hspace*{\fill}}
-\vspace{2em}
-  
+\vspace{4em}
+
 \begin{multicols}{3}
 
-\section*{Configuration}
+  \section*{Documentation}
+  See \texttt{/doc/tex-ref.tex} for a full reference card
+  \begin{description}[align=left,labelwidth=1.5cm]
+    \keydef{C-c C-i}{\underline{I}nfo entry }
+  \end{description}
 
-An example configuration with \texttt{use-package}:
+  \section*{Configuration}
+
+  An example configuration with \texttt{use-package}
   
-\begin{Verbatim}
+  \begin{verbatim}
 (use-package auctex
   :defer t
   :config
@@ -31,54 +38,59 @@ An example configuration with \texttt{use-package}:
         TeX-parse-self t
         reftex-plug-into-AUCTeX t)
   :hook (LaTeX-mode . reftex-mode))
-\end{Verbatim}
+  \end{verbatim}
 
-\section*{Basic editing commands}
+  \section*{Basic editing commands}
 
-\begin{description}[align=left,labelwidth=1.5cm]
-\element[\kbd{C-c C-m}]{ Insert \underline{m}acro }
-\element[\kbd{C-c C-e}]{ Insert \underline{e}nvironment }
-\element[\kbd{C-c ]}]{   Close current environment } 
-\element[\kbd{C-c C-s}]{ Insert \underline{s}ection }
-\element[\kbd{C-c C-j}]{ Insert itemize item }
-\element[\kbd{C-c \~}] { Math mode\\ 
-  Use \texttt{\`} to type Greek - \textit{e.g.} \texttt{\`}\texttt{a}$\rightarrow\alpha$. }
-\end{description}
+  \begin{description}[align=left,labelwidth=1.5cm]
+    \keydef{C-c C-m}{ Insert \underline{m}acro }
+    \keydef{C-c C-e}{ Insert \underline{e}nvironment }
+    \keydef{C-c ]}{   Close current environment } 
+    \keydef{C-c C-s}{ Insert \underline{s}ection }
+    \keydef{C-c C-j}{ Insert itemize item }
+    \keydef{C-c \~} { Math mode\\ 
+      Use \texttt{\`} to type Math - \textit{e.g.} \texttt{\`}\texttt{a}$\rightarrow\alpha$. }
+    \keydef{C-x n e} {\underline{N}arrow to \underline{e}nvironment \\
+      \kbd{C-x n w} to widen.}
+  \end{description}
 
+  \section*{Font commands}
 
-\section*{Font commands\footnote{ These commands work with marked region, and inside math mode.}}
-\label{sec:font-commands}
+  These commands work with marked region, and inside math mode.
+  
+  \label{sec:font-commands}
 
-\begin{description}[align=left,labelwidth=1.5cm]
-\element[\kbd{C-c C-f C-i}]{ \textit{\underline{i}talic}}
-\element[\kbd{C-c C-f C-b}]{ \textbf{\underline{b}old} }
-\element[\kbd{C-c C-f C-t}]{ \texttt{\underline{t}ypewriter} }
-\element[\kbd{C-c C-f C-t}]{ \emph{\underline{e}mphasis} }
-\element[\kbd{C-c C-f C-d}]{ \underline{d}elete current font }
-\end{description}
+  \begin{description}[align=left,labelwidth=1.5cm]
+    \keydef{C-c C-f C-i}{ \textit{\underline{i}talic}}
+    \keydef{C-c C-f C-b}{ \textbf{\underline{b}old} }
+    \keydef{C-c C-f C-t}{ \texttt{\underline{t}ypewriter} }
+    \keydef{C-c C-f C-e}{ \emph{\underline{e}mphasis} }
+    \keydef{C-c C-f C-d}{ \underline{d}elete current font }
+  \end{description}
 
-\section*{Build commands\footnote{ Check out the \texttt{Clean} command}}
+  \section*{Build commands}
+  Try \texttt{LaTeX}, \texttt{View}, and \texttt{Clean} commands
+  
+  \begin{description}[align=left,labelwidth=1.5cm]
+    \keydef{C-c C-c}{ Run \underline{c}ommand }
+    \keydef{C-c C-a}{ Build \underline{a}ll \\
+      Run all commands, until exhausted; \\
+      \textit{e.g.} \texttt{bibtex} multiple times. }
+    \keydef{C-c C-r}{ Build \underline{r}egion \\
+      Compile the text in the active region plus the preamble. Outputs to \texttt{\_region\_.pdf} by default.}
+    \keydef{C-c \`}{ Show build errors \\
+      Use \texttt{next-error} and \texttt{previous-error} to navigate. }
+  \end{description}
 
-\begin{description}[align=left,labelwidth=1.5cm]
-\element[\kbd{C-c C-c}]{ Run \underline{c}ommand }
-\element[\kbd{C-c C-a}]{ Build \underline{a}ll \\
-  Run all commands, until exhausted; \\
-  \textit{e.g.} \texttt{bibtex} multiple times. }
-\element[\kbd{C-c C-r}]{ Build \underline{r}egion \\
-  Compile the text in the active region plus the preamble. Outputs to \texttt{\_region\_.pdf} by default.}
-\element[\kbd{C-c \`}]{ Show build errors \\
-  Use \texttt{next-error} and \texttt{previous-error} to navigate. }
-\end{description}
+  \section*{Reftex}
 
-\section*{Reftex}
-
-\begin{description}[align=left,labelwidth=1cm]
-\element[\kbd{C-c =}]{ Table of context }
-\element[\kbd{C-c (}]{ Insert label, from context }
-\element[\kbd{C-c )}]{ Insert reference }
-\element[\kbd{C-c [}]{  Insert citation }
-\element[\kbd{C-c \&}]{ Jump to reference }
-\end{description}
+  \begin{description}[align=left,labelwidth=1cm]
+    \keydef{C-c =}{ Table of context }
+    \keydef{C-c (}{ Insert label, from context }
+    \keydef{C-c )}{ Insert reference }
+    \keydef{C-c [}{  Insert citation }
+    \keydef{C-c \&}{ Jump to reference }
+  \end{description}
 
 \end{multicols}
 \end{document}
