@@ -48,15 +48,15 @@
     \keydef{C-c ]}{   Close current environment } 
     \keydef{C-c C-s}{ Insert \underline{s}ection }
     \keydef{C-c C-j}{ Insert itemize item }
-    \keydef{C-c \~} { Math mode\\ 
+    \keydef{C-c \~} { Math mode. \\ 
       Use \texttt{\`} to type Math - \textit{e.g.} \texttt{\`}\texttt{a}$\rightarrow\alpha$. }
-    \keydef{C-x n e} {\underline{N}arrow to \underline{e}nvironment \\
+    \keydef{C-x n e} {\underline{N}arrow to \underline{e}nvironment. \\
       \kbd{C-x n w} to widen.}
   \end{description}
 
   \section*{Font commands}
 
-  These commands work with marked region, and inside math mode.
+  These commands work with marked region, and inside math mode
   
   \label{sec:font-commands}
 
@@ -68,17 +68,19 @@
     \keydef{C-c C-f C-d}{ \underline{d}elete current font }
   \end{description}
 
+  \columnbreak
+
   \section*{Build commands}
   Try \texttt{LaTeX}, \texttt{View}, and \texttt{Clean} commands
   
   \begin{description}[align=left,labelwidth=1.5cm]
     \keydef{C-c C-c}{ Run \underline{c}ommand }
-    \keydef{C-c C-a}{ Build \underline{a}ll \\
+    \keydef{C-c C-a}{ Build \underline{a}ll. \\
       Run all commands, until exhausted; \\
       \textit{e.g.} \texttt{bibtex} multiple times. }
-    \keydef{C-c C-r}{ Build \underline{r}egion \\
+    \keydef{C-c C-r}{ Build \underline{r}egion. \\
       Compile the text in the active region plus the preamble. Outputs to \texttt{\_region\_.pdf} by default.}
-    \keydef{C-c \`}{ Show build errors \\
+    \keydef{C-c \`}{ Show build errors. \\
       Use \texttt{next-error} and \texttt{previous-error} to navigate. }
   \end{description}
 
@@ -86,7 +88,7 @@
 
   \begin{description}[align=left,labelwidth=1cm]
     \keydef{C-c =}{ Table of context }
-    \keydef{C-c (}{ Insert label, from context }
+    \keydef{C-c (}{ Insert label of context }
     \keydef{C-c )}{ Insert reference }
     \keydef{C-c [}{  Insert citation }
     \keydef{C-c \&}{ Jump to reference }
