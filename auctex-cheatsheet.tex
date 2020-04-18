@@ -36,12 +36,12 @@ An example configuration with \texttt{use-package}:
 \section*{Basic editing commands}
 
 \begin{description}[align=left,labelwidth=1.5cm]
-\element[\kbd{C-c C-m}]{ Insert \textbf{m}acro }
-\element[\kbd{C-c C-e}]{ Insert \textbf{e}nvironment }
-\element[\kbd{C-c ]}]{   Close environment delimiter }
-\element[\kbd{C-c C-s}]{ Insert \textbf{s}ection }
-\element[\kbd{C-c C-j}]{ Insert item }
-\element[\kbd{C-c \~}] { Math mode\\
+\element[\kbd{C-c C-m}]{ Insert \underline{m}acro }
+\element[\kbd{C-c C-e}]{ Insert \underline{e}nvironment }
+\element[\kbd{C-c ]}]{   Close current environment } 
+\element[\kbd{C-c C-s}]{ Insert \underline{s}ection }
+\element[\kbd{C-c C-j}]{ Insert itemize item }
+\element[\kbd{C-c \~}] { Math mode\\ 
   Use \texttt{\`} to type Greek - \textit{e.g.} \texttt{\`}\texttt{a}$\rightarrow\alpha$. }
 \end{description}
 
@@ -50,21 +50,21 @@ An example configuration with \texttt{use-package}:
 \label{sec:font-commands}
 
 \begin{description}[align=left,labelwidth=1.5cm]
-\element[\kbd{C-c C-f C-i}]{ \textbf{i}talic \hfill }
-\element[\kbd{C-c C-f C-b}]{ \textbf{b}old }
-\element[\kbd{C-c C-f C-t}]{ \textbf{t}ypewriter }
-\element[\kbd{C-c C-f C-t}]{ \textbf{e}mphasis }
-\element[\kbd{C-c C-f C-d}]{ \textbf{d}elete current font }
+\element[\kbd{C-c C-f C-i}]{ \textit{\underline{i}talic}}
+\element[\kbd{C-c C-f C-b}]{ \textbf{\underline{b}old} }
+\element[\kbd{C-c C-f C-t}]{ \texttt{\underline{t}ypewriter} }
+\element[\kbd{C-c C-f C-t}]{ \emph{\underline{e}mphasis} }
+\element[\kbd{C-c C-f C-d}]{ \underline{d}elete current font }
 \end{description}
 
 \section*{Build commands\footnote{ Check out the \texttt{Clean} command}}
 
 \begin{description}[align=left,labelwidth=1.5cm]
-\element[\kbd{C-c C-c}]{ Run \textbf{c}ommand }
-\element[\kbd{C-c C-a}]{ Build \textbf{a}ll \\
+\element[\kbd{C-c C-c}]{ Run \underline{c}ommand }
+\element[\kbd{C-c C-a}]{ Build \underline{a}ll \\
   Run all commands, until exhausted; \\
   \textit{e.g.} \texttt{bibtex} multiple times. }
-\element[\kbd{C-c C-r}]{ Build \textbf{r}egion \\
+\element[\kbd{C-c C-r}]{ Build \underline{r}egion \\
   Compile the text in the active region plus the preamble. Outputs to \texttt{\_region\_.pdf} by default.}
 \element[\kbd{C-c \`}]{ Show build errors \\
   Use \texttt{next-error} and \texttt{previous-error} to navigate. }
