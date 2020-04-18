@@ -1,0 +1,8 @@
+* AUCTeX cheat-sheet
+
+A one-page description of main =AUCTeX= features.
+
+[[https://github.com/ivan-krukov/auctex-cheatsheet/blob/master/auctex-cheatsheet.pdf][PDF]]
+
+Full =AUCTeX= manual [[https://www.gnu.org/software/auctex/manual/auctex.html][here]].
+Reference card [[https://ftp.gnu.org/pub/gnu/auctex/12.2-extra/tex-ref.pdf][here]].
