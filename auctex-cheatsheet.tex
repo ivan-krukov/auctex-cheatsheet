@@ -1,0 +1,94 @@
+\documentclass[landscape]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+\usepackage[stable]{footmisc}
+\usepackage{multicol}
+\pagestyle{empty}
+
+\newcommand{\kbd}[1]{\colorbox{gray!10!}{\texttt{#1}}\hspace{5mm}}
+\newcommand{\doctitle}{\texttt{AUC}\TeX \hspace{.25em} Cheatsheet}
+
+\begin{document}
+
+\hspace*{\fill}{\huge \bfseries \doctitle \hspace*{\fill}}
+\vspace{2em}
+  
+\begin{multicols}{3}
+
+\section*{Configuration}
+
+An example configuration with \texttt{use-package}:
+  
+\begin{Verbatim}
+(use-package auctex
+  :defer t
+  :config
+  (setq TeX-auto-save t
+        TeX-parse-self t
+        reftex-plug-into-AUCTeX t)
+  :hook (LaTeX-mode . reftex-mode))
+\end{Verbatim}
+
+\section*{Basic editing commands}
+
+\begin{itemize}
+\item \kbd{C-c C-m} Insert \textbf{m}acro \\
+  Inserts a macro, prompting for options.
+\item \kbd{C-c C-e} Insert \textbf{e}nvironment \\
+  Inserts environment delimiters.
+\item \kbd{C-c ]} Close environment \\
+  Insert closing delimiter for the current environment.
+\item \kbd{C-c C-s} Insert \textbf{s}ection \\
+  Insert section*, prompting for label.
+\item \kbd{C-c C-j} Insert item \\
+  Insert next element within \texttt{itemize}.
+\item \kbd{C-c \~} Math mode \\
+  Use \texttt{\`} to type Greek - \textit{e.g.} \texttt{\`}\texttt{a}$\rightarrow\alpha$.
+\end{itemize}
+
+
+\section*{Font commands\footnote{ These commands work with marked region, and inside math mode.}}
+\label{sec:font-commands}
+
+\begin{itemize}
+\item \kbd{C-c C-f C-i} \textbf{i}talic.
+\item \kbd{C-c C-f C-b} \textbf{b}old.
+\item \kbd{C-c C-f C-t} \textbf{t}ypewriter.
+\item \kbd{C-c C-f C-t} \textbf{e}mphasis.
+\item \kbd{C-c C-f C-d} \textbf{d}elete current font.
+\end{itemize}
+
+\section*{Build commands}
+
+\begin{itemize}
+\item \kbd{C-c C-c} Run \textbf{c}ommand \\
+  Prompts for build command\footnote{ Check out \texttt{Clean} command}.
+\item \kbd{C-c C-a} Build \textbf{a}ll \\
+  Runs all commands, until exhausted (\textit{e.g.} \texttt{bibtex} multiple times). Fastest way to build and view a document.
+\item \kbd{C-c C-r} Build \textbf{r}egion \\
+  Compiles the text in the active region plus the preamble. Outputs to \texttt{\_region\_.pdf} by default.
+\item \kbd{C-c \`} Show build errors \\
+  Shows errors produced on build. Can use \texttt{next-error} and \texttt{previous-error} to
+  navigate.
+\end{itemize}
+
+\section*{Reftex}
+
+\begin{itemize}
+\item \kbd{C-c =} Table of context \\
+  Shows a table of context generated from the section's in the document.
+\item \kbd{C-c (} Insert a new label \\
+  The label is automatically generated based on context,
+\item \kbd{C-c )} Insert reference\footnote{When cursor is over a reference, its context will show
+    up in the echo area} \\
+  First, prompts for the type of reference macro (\texttt{<RET>} for \texttt{\textbackslash ref}). \\
+  Second, prompts for prefix (\texttt{sec:},\texttt{fig:},\texttt{eq:},\textit{etc}). \\
+  Shows a candidate list of completions.
+\item \kbd{C-c [} Insert citation.
+\item \kbd{C-c \&} Jump to reference.
+\end{itemize}
+
+\end{multicols}
+\end{document}
